@@ -1,5 +1,9 @@
 <template>
   <div class="article">
+    <button class="border-button ">
+      <router-link to="/">aller à la liste d'article </router-link>
+    </button>
+
     <h1>Description!</h1>
     <div>
       {{article.title}}
@@ -23,9 +27,27 @@
   background-color: white;
   border: solid 5px #70fc51;
   transition: border-width 0.6s linear;
+  display: flex;
+  height: 6rem;
+  width: 40rem;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-left: 25%;
 }
 
 .border:hover {
+  border-width: 10px;
+}
+
+.border-button {
+  display: flex;
+  background-color: white;
+  border: solid 5px #70fc51;
+  transition: border-width 0.6s linear;
+}
+
+.border-button:hover {
   border-width: 10px;
 }
 </style>

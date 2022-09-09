@@ -7,8 +7,9 @@
             </div>
             <router-link :to="{ name: 'Article', params: { id: article.id }}">{{article.title}}</router-link>
 
-            <!-- <hr style="width:50%; margin-bottom:1.5rem; margin-top:1.5rem;"> -->
+
         </div>
+
     </div>
 </template>
 
@@ -29,6 +30,13 @@ p {
     background-color: white;
     border: solid 5px #70fc51;
     transition: border-width 0.6s linear;
+    display: flex;
+    height: 6rem;
+    width: 40rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 25%;
 }
 
 .border:hover {

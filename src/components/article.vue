@@ -1,9 +1,19 @@
 <template>
-  <div class="artticle">
+  <div class="article">
     <h1>page article!</h1>
-    <p>
-
-    </p>
+    <div>
+      {{article.title}}
+      <br />
+      {{article.body}}
+      <br />
+      <div v-for="com in coms" :key="com.id">
+        {{com.name}}
+        <br />
+        {{com.email}}
+        <br />
+        {{com.body}}
+      </div>
+    </div>
   </div>
 </template>
 
@@ -12,25 +22,43 @@ import Article from '../components/article.vue'
 import axios from 'axios'
 
 export default {
-  name: 'article',
+  name: 'Article',
   components: {
     Article
   },
   created() {
-    this.getArticles();
+    this.getArticle();
+    this.getcoms();
   },
 
+  data() {
+    return {
+      id: this.$route.params.id,
+      article: [],
+      coms: [],
+    }
+  },
   methods: {
-    getArticles() {
-      axios.get("https://jsonplaceholder.typicode.com/post/{id}/")
+    getArticle() {
+      axios.get(`https://jsonplaceholder.typicode.com/posts/${this.id}`)
         .then(response => {
-          this.articles = response.data;
-          console.log(this.articles);
+          this.article = response.data;
+          console.log(this.article);
         })
         .catch(function (error) {
           console.log(error);
         });
     },
+    getcoms() {
+      axios.get(`https://jsonplaceholder.typicode.com/posts/${this.id}/comments`)
+        .then(response => {
+          this.coms = response.data;
+          console.log(this.coms);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
   },
 }
 

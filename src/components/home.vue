@@ -5,13 +5,20 @@
             <div class="ArticleLogo" v-bind:style="{'background-color': randomColor()}">
                 <p>{{getFirstLetter(article.title)}}</p>
             </div>
-            <router-link :to="{ name: 'article', params: { id: article.id }}">{{article.title}}</router-link>
+            <router-link :to="{ name: 'Article', params: { id: article.id }}">{{article.title}}</router-link>
 
-            <hr style="width:70%; margin-bottom:1.5rem; margin-top:1.5rem;">
+            <hr style="width:50%; margin-bottom:1.5rem; margin-top:1.5rem;">
         </div>
     </div>
 </template>
-  
+<style>
+.ArticleLogo {
+    display: inline-flex;
+    border-radius: 50%;
+    margin: 50px;
+    width: 50px;
+}
+</style>
 <script>
 import Home from '../components/home.vue'
 import axios from 'axios'

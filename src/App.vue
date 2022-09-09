@@ -2,13 +2,9 @@
   <div id="app">
     <ul class="nav">
       <li>
-        <router-link to="/">Go to Home </router-link>
-      </li>
-      <li>
-        <p> | </p>
-      </li>
-      <li>
-        <router-link to="/article"> Go to Article</router-link>
+        <button class="border-button ">
+          <router-link to="/">aller à la liste d'article </router-link>
+        </button>
       </li>
     </ul>
     <router-view></router-view>
@@ -33,6 +29,17 @@ export default {
 
 .nav {
   list-style: none;
-  display: inline-flex;
+  display: flex;
+
+}
+
+.border-button {
+  background-color: white;
+  border: solid 5px #70fc51;
+  transition: border-width 0.6s linear;
+}
+
+.border-button:hover {
+  border-width: 10px;
 }
 </style>

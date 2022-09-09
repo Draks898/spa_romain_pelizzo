@@ -1,24 +1,41 @@
 <template>
     <div class="home">
         <h1>Home page!</h1>
-        <div v-for="article in articles" :key="article.id">
+        <div class="border" v-for="article in articles" :key="article.id">
             <div class="ArticleLogo" v-bind:style="{'background-color': randomColor()}">
                 <p>{{getFirstLetter(article.title)}}</p>
             </div>
             <router-link :to="{ name: 'Article', params: { id: article.id }}">{{article.title}}</router-link>
 
-            <hr style="width:50%; margin-bottom:1.5rem; margin-top:1.5rem;">
+            <!-- <hr style="width:50%; margin-bottom:1.5rem; margin-top:1.5rem;"> -->
         </div>
     </div>
 </template>
+
 <style>
 .ArticleLogo {
     display: inline-flex;
+
     border-radius: 50%;
     margin: 50px;
     width: 50px;
 }
+
+p {
+    margin-left: 40%;
+}
+
+.border {
+    background-color: white;
+    border: solid 5px #70fc51;
+    transition: border-width 0.6s linear;
+}
+
+.border:hover {
+    border-width: 10px;
+}
 </style>
+
 <script>
 import Home from '../components/home.vue'
 import axios from 'axios'

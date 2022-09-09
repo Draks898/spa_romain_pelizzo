@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <h1>Home page!</h1>
+        <h1>Les gros titres!</h1>
         <div class="border" v-for="article in articles" :key="article.id">
             <div class="ArticleLogo" v-bind:style="{'background-color': randomColor()}">
                 <p>{{getFirstLetter(article.title)}}</p>
